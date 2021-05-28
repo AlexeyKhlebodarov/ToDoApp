@@ -11,13 +11,17 @@
 </head>
 
 <body>
-    <header>
+    <div class="todoApp">
         <h1>Todo</h1>
-        <form class="todo">
-            <input type="text" id="todoInput" class="todo-input" placeholder="Enter your ToDo" autocomplete="off">
+        <div class="todo">
+            <input class="todo-input" id="todoInput" type="text" placeholder="Enter your ToDo" autocomplete="off">
             <ul class="todo-items"></ul>
-        </form>
-    </header>
+            <div class="todo-options">
+                <button class="todo-options__remove">Remove all ToDo's</button>
+                <button class="todo-options__check">Check all ToDo's</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

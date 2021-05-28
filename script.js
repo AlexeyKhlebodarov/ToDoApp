@@ -1,6 +1,5 @@
-const form = document.querySelector('.todo'),
-    input = document.querySelector('.todo-input'),
-    todos = document.querySelector('.todo-items'),
+const input = document.querySelector('.todo-input'),
+    todoContainer = document.querySelector('.todo-items'),
     remove = document.querySelector('.todo-options__remove'),
     check = document.querySelector('.todo-options__check'),
     LStodos = JSON.parse(localStorage.getItem('todos'));
@@ -9,9 +8,10 @@ if (LStodos) {
     LStodos.forEach(item => addTodoItem(item))
 }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addTodoItem();
+input.addEventListener('keydown', ({ key }) => {
+    if (key === 'Enter') {
+        addTodoItem();
+    }
 })
 
 function addTodoItem(todoItem) {
@@ -27,7 +27,7 @@ function addTodoItem(todoItem) {
         }
 
         todoEl.innerText = todoInput;
-        todos.appendChild(todoEl);
+        todoContainer.appendChild(todoEl);
         input.value = "";
 
         todoEl.addEventListener('click', () => {
@@ -45,6 +45,7 @@ function addTodoItem(todoItem) {
 }
 
 function updateLS() {
+    const todoItems = document.querySelectorAll("li");
     const todos = [];
     todoItems.forEach(item => {
         todos.push({
@@ -54,3 +55,23 @@ function updateLS() {
     })
     localStorage.setItem('todos', JSON.stringify(todos));
 }
+
+
+remove.addEventListener('click', () => {
+    const todoItems = document.querySelectorAll("li");
+    todoItems.forEach(item => {
+        item.remove();
+        localStorage.removeItem('todos');
+    })
+    localStorage.clear();
+})
+
+check.addEventListener('click', () => {
+    const todoItems = document.querySelectorAll("li");
+    if (Array.from(todoItems).every(item => item.classList.contains('done'))) {
+        todoItems.forEach(item => item.classList.remove('done'));
+    } else {
+        todoItems.forEach(item => item.classList.add('done'));
+    }
+    updateLS();
+})
