@@ -2,6 +2,8 @@ const input = document.querySelector('.todo-input'),
     todoContainer = document.querySelector('.todo-items'),
     remove = document.querySelector('.todo-options__remove'),
     check = document.querySelector('.todo-options__check'),
+    todoInfo = document.querySelector('.todoApp-info'),
+    tooltip = document.querySelector('.todoApp-tooltip'),
     LStodos = JSON.parse(localStorage.getItem('todos'));
 
 if (LStodos) {
@@ -74,4 +76,12 @@ check.addEventListener('click', () => {
         todoItems.forEach(item => item.classList.add('done'));
     }
     updateLS();
+})
+
+todoInfo.addEventListener('mouseenter', () => {
+    tooltip.classList.add('todoApp-tooltip_active');
+})
+
+todoInfo.addEventListener('mouseout', () => {
+    tooltip.classList.remove('todoApp-tooltip_active');
 })
