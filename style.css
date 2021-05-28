@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f5f5f5;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+}
+
+header{
+    width: 100%;
+    max-width: 500px;
+    padding: 0 15px;
+}
+
+h1{
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 5rem;
+    text-align: center;
+}
+
+.todo{
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 100px;
+}
+
+
+/* TODO INPUT */
+
+.todo-input{
+    font-size: 1.6rem;
+    padding: 15px 25px;
+    display: block;
+    width: 100%;
+    border: none;
+    margin-top: 30px;
+    color: #555;
+}
+
+.todo-input:focus::placeholder{
+    color: transparent;
+}
+
+.todo-input:focus{
+    outline: none;
+    color: #555;
+}
+
+.todo-input::placeholder{
+    color: rgb(175, 175, 175);
+    position: relative;
+}
+
+
+/* TODO ITEMS */
+
+.todo-items{
+    background-color: #fff;
+    list-style-type: none;
+}
+
+.todo-items li{
+    font-size: 1.6rem;
+    padding: 15px 25px;
+    border-top: 1px solid #eee;
+    color: #555;
+    cursor: pointer;
+}
+
+.todo-items li.done{
+    color: green;
+    position: relative;
+}
+
+.todo-items li.done::after{
+    content: '\2713';
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: green;
+}
