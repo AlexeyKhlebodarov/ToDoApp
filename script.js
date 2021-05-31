@@ -62,7 +62,7 @@ function addTodoItem(todoItem) {
 function updateLS() {
     const todoItems = document.querySelectorAll("li");
     const todos = [];
-    todoItems.forEach((item, i) => {
+    todoItems.forEach(item => {
         todos.push({
             content: item.innerText,
             done: item.classList.contains('done')
@@ -127,4 +127,3 @@ function getDragAfterElement(todoContainer, y) {
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element
 }
-

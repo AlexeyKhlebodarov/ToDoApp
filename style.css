@@ -15,6 +15,24 @@ body{
     align-items: center;
     min-height: 100vh;
     height: 100%;
+    background: linear-gradient(-45deg, #0B2349 0%, #8AA9D6 100%);
+    background-size: 200% 200%;
+    animation: Gradient 30s ease infinite;
+    color: #fff;
+}
+
+/* BACKGROUND ANIMATION */
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 .todoApp{
@@ -25,7 +43,6 @@ body{
 }
 
 h1{
-    color: rgba(255, 0, 0, 0.5);
     font-size: 5rem;
     text-align: center;
     position: relative;
@@ -39,33 +56,33 @@ h1 span{
 }
 
 .todo{
-    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 
 /* TODO INPUT */
 
 .todo-input{
-    font-size: 1.55rem;
-    padding: 15px 35px;
+    font-size: 1.3rem;
+    padding: 15px 25px;
     display: block;
     width: 100%;
     border: none;
     margin-top: 30px;
-    color: #333;
+    text-align: center;
 }
 
 .todo-input:focus::placeholder{
     color: transparent;
+    background: none;
 }
 
 .todo-input:focus{
     outline: none;
-    color: #333;
 }
 
 .todo-input::placeholder{
-    color: rgb(175, 175, 175);
+    color: #0B2349;
     position: relative;
 }
 
@@ -78,11 +95,16 @@ h1 span{
 }
 
 .todo-items li{
-    font-size: 1.55rem;
+    font-size: 1.3rem;
     padding: 15px 35px;
     border-top: 1px solid #eee;
     color: #333;
     cursor: pointer;
+}
+
+.todo-items li:hover{
+    background-color: #eee;
+    transition: all 0.5s ease-out;
 }
 
 .todo__item_dragging{
@@ -109,26 +131,26 @@ h1 span{
 
 .todo-options{
     display: flex;
-    height: 60px;
 }
 
 .todo-options__remove, .todo-options__check{
+    padding: 15px 0;
     width: 50%;
     border: none;
     cursor: pointer;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #eee;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    transition: all 0.5s ease-out
 }
 
 .todo-options__remove{
-    background-color: rgba(255, 0, 0, 0.7);
+    border-right: 1px solid rgba(255, 255, 255, 0.1)
 }
 
-.todo-options__check{
-    background-color: rgba(0, 128, 0, 0.7);
+.todo-options__remove:hover, .todo-options__check:hover{
+    background-color: rgba(0, 0, 0, 0.5);
 }
-
 
 /* TOOLTIP */
 
@@ -143,9 +165,9 @@ h1 span{
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    font: italic 14px sans-serif;
+    font: italic 16px sans-serif;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(5px);
     color: #fff;
     z-index: 1;
